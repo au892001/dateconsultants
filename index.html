@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Date Consultants — Data Analytics &amp; Technology Enterprise Consulting</title>
+<meta name="description" content="Date Consultants helps enterprises modernise data platforms, operationalise AI, and turn analytics into measurable margin. Strategy, engineering, and managed delivery.">
+<meta property="og:title" content="Date Consultants — Enterprise Data &amp; AI Consulting">
+<meta property="og:description" content="Data platform modernisation, analytics engineering, and production AI for regulated enterprises.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1220'/%3E%3Cpath d='M8 22V14M14 22V9M20 22V17M26 22V11' stroke='%2338bdf8' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#0b1220;
+    --ink-2:#131c2e;
+    --slate:#5a6a85;
+    --line:#e3e8f0;
+    --paper:#ffffff;
+    --paper-2:#f6f8fc;
+    --brand:#1b6ef3;
+    --brand-dark:#0f4fc0;
+    --accent:#25d0a5;
+    --sky:#38bdf8;
+    --radius:14px;
+    --shadow:0 1px 2px rgba(11,18,32,.05),0 12px 32px rgba(11,18,32,.07);
+    --wrap:1180px;
+    --font:"Inter","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;font-family:var(--font);color:var(--ink);background:var(--paper);
+    -webkit-font-smoothing:antialiased;line-height:1.65;font-size:17px;
+  }
+  h1,h2,h3,h4{line-height:1.18;margin:0 0 .5em;letter-spacing:-.02em;font-weight:700}
+  h1{font-size:clamp(2.25rem,5vw,3.6rem)}
+  h2{font-size:clamp(1.7rem,3.3vw,2.5rem)}
+  h3{font-size:1.2rem}
+  p{margin:0 0 1rem}
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
+  img,svg{max-width:100%}
+  .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  section{padding:96px 0}
+  .lede{font-size:1.13rem;color:var(--slate);max-width:62ch}
+  .eyebrow{
+    display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--brand);margin-bottom:14px
+  }
+  .eyebrow.on-dark{color:var(--sky)}
+  .center{text-align:center}
+  .center .lede{margin-left:auto;margin-right:auto}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;
+    font-weight:600;font-size:.97rem;border:1px solid transparent;cursor:pointer;
+    transition:transform .15s ease,box-shadow .15s ease,background .15s ease;text-decoration:none
+  }
+  .btn:hover{text-decoration:none;transform:translateY(-1px)}
+  .btn-primary{background:var(--brand);color:#fff;box-shadow:0 8px 20px rgba(27,110,243,.28)}
+  .btn-primary:hover{background:var(--brand-dark)}
+  .btn-ghost{border-color:rgba(255,255,255,.28);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+  .btn-outline{border-color:var(--line);color:var(--ink);background:#fff}
+  .btn-outline:hover{border-color:var(--brand);color:var(--brand)}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:60;background:rgba(255,255,255,.88);
+    backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s
+  }
+  header.stuck{border-color:var(--line);box-shadow:0 4px 20px rgba(11,18,32,.05)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.06rem;color:var(--ink);letter-spacing:-.02em}
+  .brand:hover{text-decoration:none}
+  .brand-mark{width:32px;height:32px;border-radius:8px;background:var(--ink);display:grid;place-items:center;flex:0 0 auto}
+  .nav-links{display:flex;align-items:center;gap:30px;list-style:none;margin:0;padding:0}
+  .nav-links a{color:var(--ink-2);font-size:.95rem;font-weight:500}
+  .nav-links a:hover,.nav-links a.active{color:var(--brand);text-decoration:none}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .burger{display:none;background:none;border:0;padding:8px;cursor:pointer}
+  .burger span{display:block;width:22px;height:2px;background:var(--ink);margin:4px 0;border-radius:2px;transition:.2s}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      radial-gradient(900px 460px at 82% -8%,rgba(56,189,248,.20),transparent 60%),
+      radial-gradient(700px 420px at 5% 8%,rgba(37,208,165,.14),transparent 62%),
+      linear-gradient(180deg,#0b1220 0%,#101a2e 100%);
+    color:#fff;padding:104px 0 96px;position:relative;overflow:hidden
+  }
+  .hero .grid-lines{
+    position:absolute;inset:0;opacity:.35;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(circle at 60% 30%,#000,transparent 78%)
+  }
+  .hero-inner{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center;position:relative}
+  .hero h1{color:#fff}
+  .hero p{color:#c3cee0;font-size:1.14rem;max-width:54ch}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .hero-note{margin-top:26px;font-size:.86rem;color:#8fa2bf}
+  .panel{
+    background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;padding:26px;backdrop-filter:blur(6px)
+  }
+  .panel h4{color:#fff;font-size:.95rem;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
+  .panel h4 small{color:var(--accent);font-weight:600;font-size:.75rem;letter-spacing:.06em}
+  .kpi-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+  .kpi{background:rgba(255,255,255,.05);border-radius:11px;padding:14px 16px}
+  .kpi b{display:block;font-size:1.5rem;color:#fff;letter-spacing:-.03em}
+  .kpi span{font-size:.76rem;color:#93a5c2;text-transform:uppercase;letter-spacing:.08em}
+  .spark{display:flex;align-items:flex-end;gap:6px;height:78px}
+  .spark i{flex:1;background:linear-gradient(180deg,var(--sky),rgba(56,189,248,.15));border-radius:4px 4px 2px 2px;display:block}
+
+  /* ---------- logo strip ---------- */
+  .strip{background:var(--paper-2);border-bottom:1px solid var(--line);padding:34px 0}
+  .strip p{text-align:center;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);margin-bottom:20px}
+  .logos{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px}
+  .logos span{font-weight:700;color:#93a1b6;font-size:1.02rem;letter-spacing:-.01em}
+
+  /* ---------- generic cards ---------- */
+  .grid{display:grid;gap:22px}
+  .g-2{grid-template-columns:repeat(2,1fr)}
+  .g-3{grid-template-columns:repeat(3,1fr)}
+  .g-4{grid-template-columns:repeat(4,1fr)}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;
+    transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cdd8e8}
+  .card p{color:var(--slate);font-size:.97rem;margin-bottom:0}
+  .card ul{margin:14px 0 0;padding-left:18px;color:var(--slate);font-size:.92rem}
+  .card ul li{margin-bottom:5px}
+  .ico{
+    width:44px;height:44px;border-radius:11px;background:rgba(27,110,243,.09);
+    display:grid;place-items:center;margin-bottom:18px
+  }
+  .ico svg{width:22px;height:22px;stroke:var(--brand);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+  /* ---------- services ---------- */
+  .svc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:44px;flex-wrap:wrap}
+
+  /* ---------- approach timeline ---------- */
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .step{position:relative;padding-top:34px}
+  .step:before{
+    counter-increment:s;content:counter(s,decimal-leading-zero);
+    position:absolute;top:0;left:0;font-weight:800;font-size:.85rem;color:var(--brand);
+    letter-spacing:.1em
+  }
+  .step:after{content:"";position:absolute;top:8px;left:34px;right:-11px;height:1px;background:var(--line)}
+  .step:last-child:after{display:none}
+  .step h3{font-size:1.05rem}
+  .step p{color:var(--slate);font-size:.94rem;margin:0}
+
+  /* ---------- industries ---------- */
+  .dark{background:var(--ink);color:#fff}
+  .dark h2,.dark h3{color:#fff}
+  .dark .lede{color:#a9b8cf}
+  .ind{
+    border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:26px;
+    background:rgba(255,255,255,.04);transition:background .18s,border-color .18s
+  }
+  .ind:hover{background:rgba(255,255,255,.075);border-color:rgba(56,189,248,.45)}
+  .ind h3{font-size:1.05rem;margin-bottom:8px}
+  .ind p{color:#a9b8cf;font-size:.94rem;margin:0}
+  .ind .tag{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700}
+
+  /* ---------- results / counters ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;text-align:center}
+  .stat b{display:block;font-size:clamp(2rem,4vw,2.9rem);letter-spacing:-.035em;color:var(--ink)}
+  .stat span{color:var(--slate);font-size:.9rem}
+
+  /* ---------- case studies ---------- */
+  .case{display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+  .case .meta{font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);font-weight:700}
+  .case h3{font-size:1.12rem;margin:12px 0 10px}
+  .case .result{
+    border-top:1px solid var(--line);padding-top:16px;display:flex;gap:26px;flex-wrap:wrap
+  }
+  .case .result div b{display:block;font-size:1.3rem;letter-spacing:-.02em}
+  .case .result div span{font-size:.8rem;color:var(--slate)}
+
+  /* ---------- stack ---------- */
+  .stack-group h4{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--slate);margin-bottom:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{
+    border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 15px;
+    font-size:.87rem;font-weight:500;color:var(--ink-2)
+  }
+
+  /* ---------- quote ---------- */
+  .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .quote{background:var(--paper-2);border-radius:var(--radius);padding:30px;border:1px solid var(--line)}
+  .quote p{font-size:1.04rem;color:var(--ink-2)}
+  .who{display:flex;align-items:center;gap:12px;margin-top:18px}
+  .who .av{width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.85rem}
+  .who b{display:block;font-size:.92rem}
+  .who span{font-size:.82rem;color:var(--slate)}
+
+  /* ---------- team ---------- */
+  .person{text-align:center}
+  .person .av{
+    width:84px;height:84px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;
+    font-weight:700;font-size:1.35rem;color:#fff;background:linear-gradient(135deg,var(--brand),var(--sky))
+  }
+  .person h3{font-size:1.02rem;margin-bottom:2px}
+  .person span{font-size:.87rem;color:var(--slate)}
+
+  /* ---------- faq ---------- */
+  .faq{max-width:820px;margin:0 auto}
+  .qa{border-bottom:1px solid var(--line)}
+  .qa button{
+    width:100%;text-align:left;background:none;border:0;padding:22px 40px 22px 0;font:inherit;
+    font-weight:600;font-size:1.03rem;color:var(--ink);cursor:pointer;position:relative
+  }
+  .qa button:after{
+    content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);
+    font-size:1.4rem;font-weight:400;color:var(--brand);transition:transform .2s
+  }
+  .qa.open button:after{content:"–"}
+  .qa .a{display:none;padding:0 0 22px;color:var(--slate);font-size:.98rem;max-width:70ch}
+  .qa.open .a{display:block}
+
+  /* ---------- contact ---------- */
+  .contact{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:start}
+  .facts{list-style:none;margin:26px 0 0;padding:0}
+  .facts li{display:flex;gap:12px;padding:13px 0;border-top:1px solid rgba(255,255,255,.12);font-size:.95rem;color:#c3cee0}
+  .facts li b{color:#fff;min-width:104px;font-weight:600}
+  form{background:#fff;border-radius:18px;padding:30px;box-shadow:var(--shadow)}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--ink-2)}
+  .field input,.field select,.field textarea{
+    width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;
+    font-size:.95rem;background:#fff;color:var(--ink);transition:border-color .15s,box-shadow .15s
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(27,110,243,.12)
+  }
+  .field textarea{min-height:112px;resize:vertical}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .err{color:#d63b3b;font-size:.8rem;margin-top:5px;display:none}
+  .field.bad input,.field.bad select,.field.bad textarea{border-color:#d63b3b}
+  .field.bad .err{display:block}
+  .fineprint{font-size:.8rem;color:var(--slate);margin:14px 0 0}
+  .sent{display:none;background:rgba(37,208,165,.1);border:1px solid rgba(37,208,165,.4);color:#0d7a61;
+    border-radius:10px;padding:14px 16px;font-size:.93rem;margin-bottom:18px}
+
+  /* ---------- footer ---------- */
+  footer{background:#070d18;color:#8fa2bf;padding:64px 0 30px;font-size:.92rem}
+  .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px}
+  footer h5{color:#fff;font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;margin:0 0 16px}
+  footer ul{list-style:none;margin:0;padding:0}
+  footer li{margin-bottom:10px}
+  footer a{color:#8fa2bf}
+  footer a:hover{color:#fff;text-decoration:none}
+  .fbrand{display:flex;align-items:center;gap:11px;color:#fff;font-weight:800;margin-bottom:14px}
+  .legal{
+    margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.85rem
+  }
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .hero-inner,.contact{grid-template-columns:1fr}
+    .g-4,.stats,.steps{grid-template-columns:repeat(2,1fr)}
+    .step:after{display:none}
+    .fgrid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:760px){
+    section{padding:68px 0}
+    .nav-links{
+      position:fixed;inset:74px 0 auto;flex-direction:column;align-items:stretch;gap:0;
+      background:#fff;border-bottom:1px solid var(--line);padding:8px 24px 20px;display:none
+    }
+    .nav-links.open{display:flex}
+    .nav-links li{border-top:1px solid var(--line)}
+    .nav-links a{display:block;padding:14px 0;font-size:1rem}
+    .burger{display:block}
+    .nav-cta .btn{display:none}
+    .g-2,.g-3,.g-4,.quotes,.stats,.steps,.two{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="brand-mark">
+        <svg width="18" height="18" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M8 22V14M14 22V9M20 22V17M26 22V11" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" fill="none"/>
+        </svg>
+      </span>
+      Date Consultants
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#stack">Technology</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#contact">Book a discovery call</a>
+      <button class="burger" id="burger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="grid-lines"></div>
+  <div class="wrap hero-inner">
+    <div>
+      <span class="eyebrow on-dark">Enterprise data · analytics · AI</span>
+      <h1>We turn enterprise data into decisions leadership can defend.</h1>
+      <p>Date Consultants modernises data platforms, industrialises analytics, and puts AI into production for organisations where accuracy, lineage, and regulatory scrutiny are non-negotiable.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Book a discovery call</a>
+        <a class="btn btn-ghost" href="#work">See client outcomes</a>
+      </div>
+      <p class="hero-note">Fixed-scope diagnostics from 3 weeks · Embedded pods from 6 weeks · SOC 2 aligned delivery</p>
+    </div>
+
+    <aside class="panel" aria-label="Illustrative engagement dashboard">
+      <h4>Platform health — Q3 <small>LIVE VIEW</small></h4>
+      <div class="kpi-row">
+        <div class="kpi"><b>99.4%</b><span>Pipeline SLA</span></div>
+        <div class="kpi"><b>−38%</b><span>Cloud spend</span></div>
+        <div class="kpi"><b>14×</b><span>Model velocity</span></div>
+        <div class="kpi"><b>1.2h</b><span>Data freshness</span></div>
+      </div>
+      <div class="spark" aria-hidden="true">
+        <i style="height:34%"></i><i style="height:48%"></i><i style="height:41%"></i>
+        <i style="height:62%"></i><i style="height:55%"></i><i style="height:74%"></i>
+        <i style="height:68%"></i><i style="height:86%"></i><i style="height:79%"></i>
+        <i style="height:96%"></i>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <p>Trusted by data and technology leaders across regulated industries</p>
+    <div class="logos">
+      <span>NORTHBANK</span><span>Veritas Health</span><span>ORION LOGISTICS</span>
+      <span>Calder Energy</span><span>Ashford Retail Group</span><span>MERIDIAN PUBLIC SECTOR</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="wrap">
+    <div class="svc-head reveal">
+      <div>
+        <span class="eyebrow">What we do</span>
+        <h2>Six capabilities, one accountable delivery team</h2>
+        <p class="lede">We work end to end — from board-level data strategy to the pipelines, models, and governance that keep it running after we leave.</p>
+      </div>
+      <a class="btn btn-outline" href="#contact">Request our capability deck</a>
+    </div>
+
+    <div class="grid g-3">
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
+        <h3>Data &amp; AI strategy</h3>
+        <p>A costed, sequenced roadmap tied to P&amp;L outcomes — not a technology wish list.</p>
+        <ul>
+          <li>Maturity and capability assessment</li>
+          <li>Target architecture and build-vs-buy</li>
+          <li>Business case and value tracking</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+        <h3>Platform modernisation</h3>
+        <p>Migration off brittle legacy warehouses onto a governed lakehouse that scales with cost control built in.</p>
+        <ul>
+          <li>Lakehouse and warehouse builds</li>
+          <li>Legacy ETL and mainframe offload</li>
+          <li>FinOps and workload optimisation</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h13"/><circle cx="19" cy="12" r="2"/></svg></div>
+        <h3>Analytics engineering</h3>
+        <p>Versioned, tested transformation layers and semantic models so every team reports the same number.</p>
+        <ul>
+          <li>Dimensional and semantic modelling</li>
+          <li>Metric layers and certified KPIs</li>
+          <li>Self-service BI enablement</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9z"/><path d="M12 1v3M12 20v3M1 12h3M20 12h3"/></svg></div>
+        <h3>Machine learning &amp; GenAI</h3>
+        <p>Models that survive contact with production: monitored, versioned, evaluated, and owned.</p>
+        <ul>
+          <li>Forecasting, pricing, churn, risk</li>
+          <li>RAG and document intelligence</li>
+          <li>MLOps, evaluation, and guardrails</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Governance &amp; data risk</h3>
+        <p>Catalogue, lineage, quality, and access control designed to satisfy auditors and regulators the first time.</p>
+        <ul>
+          <li>Data quality and observability</li>
+          <li>Privacy, residency, and GDPR</li>
+          <li>AI governance and model risk</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M12 3v9l7 4"/></svg></div>
+        <h3>Managed data operations</h3>
+        <p>We run what we build — SLA-backed pipeline operations, on-call cover, and continuous improvement.</p>
+        <ul>
+          <li>24/7 or follow-the-sun cover</li>
+          <li>Incident response and RCA</li>
+          <li>Quarterly cost and performance review</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPROACH ================= -->
+<section id="approach" style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:48px">
+      <span class="eyebrow">How we engage</span>
+      <h2>Value in the first 90 days, not the second year</h2>
+      <p class="lede">Every engagement produces something usable within six weeks. Long transformation programmes fail; sequenced increments that pay for the next one do not.</p>
+    </div>
+
+    <div class="steps reveal">
+      <div class="step">
+        <h3>Diagnose</h3>
+        <p>Two to three weeks of interviews, architecture review, and data profiling. You get a findings pack and a ranked opportunity list.</p>
+      </div>
+      <div class="step">
+        <h3>Prove</h3>
+        <p>One narrow use case built end to end on your real data — enough to validate the architecture and the business case together.</p>
+      </div>
+      <div class="step">
+        <h3>Industrialise</h3>
+        <p>Harden into a governed platform: CI/CD, testing, observability, cost controls, and documented runbooks.</p>
+      </div>
+      <div class="step">
+        <h3>Transfer</h3>
+        <p>Paired delivery, enablement sessions, and an operating model your team owns. We plan our exit from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INDUSTRIES ================= -->
+<section id="industries" class="dark">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:48px">
+      <span class="eyebrow on-dark">Sector depth</span>
+      <h2>Consultants who already know your data model</h2>
+      <p class="lede">We staff engagements with people who have shipped in your sector — so the first three weeks aren't spent explaining your domain.</p>
+    </div>
+
+    <div class="grid g-3 reveal">
+      <div class="ind">
+        <span class="tag">Financial services</span>
+        <h3>Banking, insurance &amp; capital markets</h3>
+        <p>Risk aggregation, BCBS 239 lineage, IFRS 17 data readiness, fraud analytics, and regulatory reporting automation.</p>
+      </div>
+      <div class="ind">
+        <span class="tag">Healthcare</span>
+        <h3>Providers, payers &amp; life sciences</h3>
+        <p>Interoperability (FHIR/HL7), clinical data warehousing, patient-flow forecasting, and de-identified research platforms.</p>
+      </div>
+      <div class="ind">
+        <span class="tag">Manufacturing</span>
+        <h3>Industrial &amp; supply chain</h3>
+        <p>IoT and OT telemetry pipelines, predictive maintenance, yield analytics, and demand-planning models.</p>
+      </div>
+      <div class="ind">
+        <span class="tag">Retail &amp; CPG</span>
+        <h3>Commerce &amp; consumer</h3>
+        <p>Customer data platforms, unified identity, price and promotion elasticity, and inventory optimisation.</p>
+      </div>
+      <div class="ind">
+        <span class="tag">Energy &amp; utilities</span>
+        <h3>Generation, grid &amp; trading</h3>
+        <p>Asset performance analytics, smart-meter data at scale, emissions reporting, and trading data lineage.</p>
+      </div>
+      <div class="ind">
+        <span class="tag">Public sector</span>
+        <h3>Government &amp; higher education</h3>
+        <p>Cross-agency data sharing, citizen-service analytics, sovereign cloud constraints, and transparency reporting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESULTS ================= -->
+<section id="results">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:44px">
+      <span class="eyebrow">By the numbers</span>
+      <h2>Outcomes our clients measured</h2>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b data-count="240" data-suffix="+">0</b><span>Enterprise engagements delivered</span></div>
+      <div class="stat"><b data-count="38" data-suffix="%" data-prefix="−">0</b><span>Average cloud data cost reduction</span></div>
+      <div class="stat"><b data-count="6" data-suffix=" wks">0</b><span>Median time to first production use case</span></div>
+      <div class="stat"><b data-count="94" data-suffix="%">0</b><span>Clients who extend after first phase</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section id="work" style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="svc-head reveal">
+      <div>
+        <span class="eyebrow">Selected work</span>
+        <h2>Engagements, and what they changed</h2>
+        <p class="lede">Illustrative case summaries. Named references available under NDA on request.</p>
+      </div>
+    </div>
+
+    <div class="grid g-3">
+      <article class="card case reveal">
+        <div>
+          <span class="meta">Retail banking · Platform modernisation</span>
+          <h3>Regulatory reporting cut from 11 days to 14 hours</h3>
+          <p>Replaced 400+ hand-maintained ETL jobs with a governed lakehouse and a tested transformation layer, with full column-level lineage for the regulator.</p>
+        </div>
+        <div class="result">
+          <div><b>−94%</b><span>Reporting cycle time</span></div>
+          <div><b>100%</b><span>Lineage coverage</span></div>
+        </div>
+      </article>
+
+      <article class="card case reveal">
+        <div>
+          <span class="meta">Healthcare provider · ML in production</span>
+          <h3>Patient-flow forecasting across 22 sites</h3>
+          <p>Built a de-identified clinical data platform and a staffing-demand model reviewed weekly by operational leadership, with drift monitoring and clinical sign-off gates.</p>
+        </div>
+        <div class="result">
+          <div><b>−17%</b><span>Agency staffing spend</span></div>
+          <div><b>92%</b><span>Forecast accuracy (7-day)</span></div>
+        </div>
+      </article>
+
+      <article class="card case reveal">
+        <div>
+          <span class="meta">Industrial manufacturer · IoT analytics</span>
+          <h3>Predictive maintenance on 3,100 assets</h3>
+          <p>Streamed OT telemetry into a time-series platform, then deployed anomaly models that feed the existing maintenance workflow rather than a new dashboard nobody opens.</p>
+        </div>
+        <div class="result">
+          <div><b>−31%</b><span>Unplanned downtime</span></div>
+          <div><b>8 mo</b><span>Payback period</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STACK ================= -->
+<section id="stack">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:46px">
+      <span class="eyebrow">Technology</span>
+      <h2>Platform-fluent, vendor-honest</h2>
+      <p class="lede">We hold partnerships across the major clouds and data platforms, and we will tell you when the cheaper option is the right one.</p>
+    </div>
+
+    <div class="grid g-4">
+      <div class="stack-group reveal">
+        <h4>Cloud &amp; infrastructure</h4>
+        <div class="chips">
+          <span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">Google Cloud</span>
+          <span class="chip">Kubernetes</span><span class="chip">Terraform</span>
+        </div>
+      </div>
+      <div class="stack-group reveal">
+        <h4>Data platforms</h4>
+        <div class="chips">
+          <span class="chip">Databricks</span><span class="chip">Snowflake</span><span class="chip">BigQuery</span>
+          <span class="chip">Microsoft Fabric</span><span class="chip">Apache Iceberg</span>
+        </div>
+      </div>
+      <div class="stack-group reveal">
+        <h4>Pipelines &amp; modelling</h4>
+        <div class="chips">
+          <span class="chip">dbt</span><span class="chip">Airflow</span><span class="chip">Spark</span>
+          <span class="chip">Kafka</span><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">.Net</span><span class="chip">Java</span>
+        </div>
+      </div>
+      <div class="stack-group reveal">
+        <h4>Analytics, ML &amp; governance</h4>
+        <div class="chips">
+          <span class="chip">Power BI</span><span class="chip">Tableau</span><span class="chip">Looker</span><span class="chip">Crystal Reports</span>
+          <span class="chip">MLflow</span><span class="chip">Unity Catalog</span><span class="chip">Microsoft Purview</span>
+        </div>
+      </div>
+      <div class="stack-group reveal">
+        <h4>Custom Development</h4>
+        <div class="chips">
+          <span class="chip">Asp.Net</span><span class="chip">Python Django</span><span class="chip">Java Spring</span><span class="chip">Spring Boot</span>
+          <span class="chip">Oracle</span><span class="chip">Sql Server</span><span class="chip">Mysql</span> <span class="chip">MongoDB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUOTES ================= -->
+<section style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:42px">
+      <span class="eyebrow">Client voices</span>
+      <h2>What sponsors say afterwards</h2>
+    </div>
+    <div class="quotes reveal">
+      <figure class="quote" style="margin:0">
+        <p>“They spent the first fortnight listening, then told us two of the three projects on our roadmap weren't worth doing. That honesty saved us more than the engagement cost.”</p>
+        <div class="who"><span class="av">CD</span><div><b>Group CDO</b><span>European retail bank</span></div></div>
+      </figure>
+      <figure class="quote" style="margin:0">
+        <p>“The difference was operational discipline. Tests, monitoring, runbooks, an on-call rota — our team inherited something we could actually run without them.”</p>
+        <div class="who"><span class="av">VP</span><div><b>VP Data Engineering</b><span>Global logistics operator</span></div></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEAM ================= -->
+<section id="team">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:46px">
+      <span class="eyebrow">Leadership</span>
+      <h2>Senior people on the work, not just the pitch</h2>
+      <p class="lede">Every engagement has a named partner accountable for outcomes and a technical lead who writes code.</p>
+    </div>
+    <div class="grid g-4 reveal">
+      <div class="person">
+        <div class="av">AR</div><h3>A. Renner</h3><span>Managing Partner</span>
+      </div>
+      <div class="person">
+        <div class="av">SM</div><h3>S. Mbeki</h3><span>Partner, Data Platforms</span>
+      </div>
+      <div class="person">
+        <div class="av">JL</div><h3>J. Lindqvist</h3><span>Partner, AI &amp; Decision Science</span>
+      </div>
+      <div class="person">
+        <div class="av">PN</div><h3>P. Nagarajan</h3><span>Director, Governance &amp; Risk</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section style="background:var(--paper-2);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:34px">
+      <span class="eyebrow">Practicalities</span>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq reveal">
+      <div class="qa">
+        <button type="button" aria-expanded="false">How do engagements usually start?</button>
+        <div class="a">Almost always with a fixed-price diagnostic of two to three weeks. You get a findings pack, a target architecture sketch, and a ranked backlog with effort and value estimates — useful whether or not you continue with us.</div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false">What does a typical team look like?</button>
+        <div class="a">A named partner, a technical lead, and two to five specialists — analytics engineers, platform engineers, or ML engineers depending on the phase. Pods scale up and down monthly rather than on annual contracts.</div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false">Do you work with our existing vendors and platform?</button>
+        <div class="a">Yes. Most of our work extends investments already in place. We are platform-certified across the major clouds but take no reseller margin, so recommendations are not tied to a licence sale.</div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false">How do you handle data security and residency?</button>
+        <div class="a">We work inside your environment and your controls by default — your cloud tenancy, your identity provider, your logging. Delivery follows SOC 2 aligned practices, and we support regional residency and sovereign-cloud constraints.</div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false">What happens when the engagement ends?</button>
+        <div class="a">Handover is a deliverable, not an afterthought: documented architecture, runbooks, test coverage, paired delivery throughout, and an enablement plan. If you prefer, we stay on in a managed-operations capacity with an SLA.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="dark">
+  <div class="wrap contact">
+    <div class="reveal">
+      <span class="eyebrow on-dark">Get started</span>
+      <h2>Tell us what isn't working</h2>
+      <p class="lede">Send a short note about your data estate and the decision it's failing to support. A partner — not a salesperson — replies within one business day.</p>
+      <ul class="facts">
+        <li><b>Email</b> info@dateconsultants.com</li>
+        <li><b>Phone</b> +92 (300) 870‑7585</li>
+        <li><b>Offices</b> Islamabad · London · Ottawa</li>
+        <li><b>Response</b> Within one business day</li>
+      </ul>
+    </div>
+
+    <form id="lead-form" novalidate>
+      <div class="sent" id="sent-msg">Thank you — your enquiry has been recorded. A partner will be in touch within one business day.</div>
+
+      <div class="two">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+          <div class="err">Please enter your name.</div>
+        </div>
+        <div class="field">
+          <label for="email">Work email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <div class="err">Please enter a valid work email address.</div>
+        </div>
+      </div>
+
+      <div class="two">
+        <div class="field">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" autocomplete="organization" required>
+          <div class="err">Please enter your company name.</div>
+        </div>
+        <div class="field">
+          <label for="interest">Area of interest</label>
+          <select id="interest" name="interest" required>
+            <option value="">Select one…</option>
+            <option>Data &amp; AI strategy</option>
+            <option>Platform modernisation</option>
+            <option>Analytics engineering</option>
+            <option>Machine learning &amp; GenAI</option>
+            <option>Governance &amp; data risk</option>
+            <option>Managed data operations</option>
+          </select>
+          <div class="err">Please choose an area.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">What are you trying to solve?</label>
+        <textarea id="message" name="message" required></textarea>
+        <div class="err">A sentence or two is enough.</div>
+      </div>
+
+      <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">Request a discovery call</button>
+      <p class="fineprint">By submitting you agree to be contacted about your enquiry. We never share your details with third parties.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand">
+          <span class="brand-mark">
+            <svg width="18" height="18" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M8 22V14M14 22V9M20 22V17M26 22V11" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" fill="none"/>
+            </svg>
+          </span>
+          Date Consultants
+        </div>
+        <p style="max-width:34ch">Enterprise data, analytics, and AI consulting for organisations that answer to regulators, boards, and customers.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Data &amp; AI strategy</a></li>
+          <li><a href="#services">Platform modernisation</a></li>
+          <li><a href="#services">Analytics engineering</a></li>
+          <li><a href="#services">Governance &amp; data risk</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Industries</h5>
+        <ul>
+          <li><a href="#industries">Financial services</a></li>
+          <li><a href="#industries">Healthcare</a></li>
+          <li><a href="#industries">Manufacturing</a></li>
+          <li><a href="#industries">Public sector</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#team">Leadership</a></li>
+          <li><a href="#work">Client work</a></li>
+          <li><a href="#approach">How we engage</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Date Consultants. All rights reserved.</span>
+      <span>Privacy notice · Terms of engagement · Modern slavery statement</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* sticky header shadow */
+  var header = document.getElementById('site-header');
+  var onScroll = function(){ header.classList.toggle('stuck', window.scrollY > 8); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* mobile nav */
+  var burger = document.getElementById('burger');
+  var links  = document.getElementById('nav-links');
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.addEventListener('click', function(e){
+    if (e.target.tagName === 'A') { links.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+  });
+
+  /* scroll reveal */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -40px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* animated counters */
+  var counters = document.querySelectorAll('[data-count]');
+  var runCounter = function(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var prefix = el.getAttribute('data-prefix') || '';
+    var start  = null, dur = 1300;
+    var tick = function(ts){
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  if ('IntersectionObserver' in window) {
+    var co = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ runCounter(en.target); co.unobserve(en.target); }
+      });
+    }, {threshold:.6});
+    counters.forEach(function(el){ co.observe(el); });
+  } else {
+    counters.forEach(function(el){
+      el.textContent = (el.getAttribute('data-prefix')||'') + el.getAttribute('data-count') + (el.getAttribute('data-suffix')||'');
+    });
+  }
+
+  /* active nav link on scroll */
+  var navAnchors = Array.prototype.slice.call(document.querySelectorAll('#nav-links a'));
+  var sections = navAnchors.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          navAnchors.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id); });
+        }
+      });
+    }, {threshold:.35});
+    sections.forEach(function(s){ so.observe(s); });
+  }
+
+  /* FAQ accordion */
+  document.querySelectorAll('.qa button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var qa = btn.parentElement;
+      var open = qa.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  /* contact form validation */
+  var form = document.getElementById('lead-form');
+  var sent = document.getElementById('sent-msg');
+  var isEmail = function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); };
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var ok = true;
+    ['name','email','company','interest','message'].forEach(function(id){
+      var input = document.getElementById(id);
+      var field = input.closest('.field');
+      var valid = input.value.trim() !== '' && (id !== 'email' || isEmail(input.value.trim()));
+      field.classList.toggle('bad', !valid);
+      if (!valid && ok) { input.focus(); ok = false; }
+    });
+    if (!ok) return;
+    sent.style.display = 'block';
+    form.querySelectorAll('input,select,textarea').forEach(function(el){ el.value = ''; });
+    sent.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+  form.querySelectorAll('input,select,textarea').forEach(function(el){
+    el.addEventListener('input', function(){ el.closest('.field').classList.remove('bad'); });
+  });
+})();
+</script>
+</body>
+</html>
